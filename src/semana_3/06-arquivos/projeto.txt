@@ -1,0 +1,7 @@
+1244,Reconhecimento de voz para acessibilidade,Lívia Gomes
+1245,Simulação de trânsito urbano com agentes autônomos,Ricardo Teles
+1246,Análise preditiva de epidemias com aprendizado de máquina,Sandra Moura
+1247,Classificação de sentimentos em redes sociais,Paulo Esteves
+1248,Plataforma de ensino adaptativo com IA,Fernanda Luz
+1249,Detecção de fraudes bancárias usando árvores de decisão,João Marcos
+1250,Otimização de rotas de entrega com algoritmos genéticos,Luciana Andrade
