@@ -228,3 +228,16 @@ Acurácia de Treino: 0.697023
 Acurácia de Teste: 0.678322
 ```
 
+##### 5 - Usando o modelo original e o otimizador Adam:
+
+**1. No DataLoader, mude o batch_size de 32 para um valor muito maior, como 512.**
+**2. Treine o modelo e observe a acurácia.**
+**3. Agora, faça o oposto. Mude o batch_size para um valor bem pequeno, como 4, e treine novamente.**
+**4. Como a mudança no batch_size afetou a estabilidade do custo (loss) a cada época e a acurácia final do modelo?**
+1. Primeiramente, fica nítido, que o treino com batch grandes, como 512 elementos é muito mais rápido do que 
+quando o batch é pequeno como 4. Isso ocorre porque consiste em 512/4 vezes menos ietrações: 128 menos forwards, 128 menos cálculos de gradientes, 128 menos passos dados pela rede.
+2. Quando feito com a arquitetura com 3 Dropouts e ativação ReLu seguido de Sigmoide na ultima camada o resultado para os dois casos foi igual: `Acurácia de Treino: 0.593695` e `Acurácia de Teste: 0.594406`. Nos dois casos toda epoca mosta 0.693 como loss. 
+3. Uma possibilidade de motivação é o learning_rate alto, ao abaixa-lo para 0.001 os resultados mudam:
+    com batch=4: A cada época o loss varia bastante e `Acurácia de Treino: 0.397548` e `Acurácia de Teste: 0.398601`
+    com batch=512: A variação entre cada época é menor e `Acurácia de Treino: 0.772329` e `Acurácia de Teste: 0.755245`
+4. Um batch menor é vantajoso qe houver tempo suficiente para isso, um learning rate adaptativo também é fundamental.
