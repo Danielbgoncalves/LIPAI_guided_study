@@ -131,7 +131,7 @@ Sim, muito próximo da modificação anterior.
 
 #### Modificação 4: consertar o tamanho dos dataloaders
 **Modificação:** 
-Durante todo o treinamento o dataset de treinamento era muito menor do que deveria ser (mulpa minha 😅)
+Durante todo o treinamento o dataset de treinamento era muito menor do que deveria ser (culpa minha 😅)
 No exercício doisa intensão era particionar o antigo daatset de treino em um de treino e de validação, eu ia colocar 83% dele no treino e 17% na validação mas ficou invertido... e mesmo assim o modelo alcançava acurácis muitos altas, incrível !
 ```python
 # Exercício 2
