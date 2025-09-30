@@ -1,0 +1,34 @@
+1. **Leia o capítulo 8 do livro Introduction to Transfer Learning  Algorithms and Practice:**
+
+[Introduction to Transfer Learning  Algorithms and Practice-chapter-8.pdf](attachment:1e5506fb-e4bb-4ca8-bf16-6246a8fd5915:Introduction_to_Transfer_Learning__Algorithms_and_Practice-chapter-8.pdf)
+
+**Durante a leitura traga anotações curtas de cada item:**
+
+**8.1 Transferability — camadas baixas = traços gerais; camadas altas = traços específicos (estudo clássico tipo Yosinski et al.).**
+A trandferência de até as 3 primeiras camadas de uma rede A para uma rede B costuma ser vantajoso por trazer habilidade reconhecimento de regiões genéricas para a rede B. A partir dessas camadas de A o reconhecimento passa a ser de áreas específicas que não ajudam B no seu trabalho.
+
+**8.2 Pré-treino e Fine-tuning — definição formal; quando congelar vs. ajustar.**
+A vantagem do fine-tunning é aproveitar de uma rede pre-pretreinada e apenas ajustar para o problema com o qual se lida.
+
+**8.3 Regularização no fine-tuning — L2, L2-SP, EWC/Fisher, DELTA (mapas de feature), BSS, co-tuning.**
+O que estamos buscando é formas de diminuir o afatamento da nova rede treinada da rede que já sabe relizar um bom trabalho com outro dataset.
+- L2: Weight Decay: penaliza pesos grandes que apareçam durante o treinamento
+- L2-SP: Starting Point: em vez de penalizar pesos grandes penaliza o aparecimento de pesos muito distantes dos originais, força a solução à ficar próxima da inicial.
+- EWC / Fisher: Usa matriz de Fisher para medir quais pesos eram mais importentes na terefa original. Pesa a regularização de cada parâmetro com essa importância.
+- Delta: regulariza os mapas de ativação, não os pesos
+- BSS: evita overfitting controlando os autovalores das ativações
+
+**8.4 Uso como extrator de features — pipeline “deep features + SVM/ML clássico”.**
+O novo modelo é treinado com features extraídas da rede pré-treinada. O fluxo é Imagem -> passa pela rede pré-treinada até camada x -> vetor de features para o classificador novo -> predição. Isso ocorre tanto no treinamento quando na predição.
+
+**8.5 O que/onde transferir — abrir a caixa-preta: quantas camadas, para quais blocos (ideias de meta-learning).**
+Congelar os blocos iniciais é bom pois já aprenderam a idetificar características gerais, os blocos finais utilizam essas informações para predizer, esses rpecisam ser reajustados a cada dataset.
+
+**8.6 Prática em PyTorch — função de fine-tuning e extração de features.**
+
+**8.7 Sumário — quando pré-treinar ajuda mais (datasets pequenos, robustez, OOD, etc.).**
+- Datasets pequenos: evita começar o treino do zero com poucos dados
+- Robistez: modelos pré-treinados já aprenderam invarâncias úteis
+- OOD: ajuda quando os dados são diferentes mas ainda são correlacionados
+- velocidade: convergem muito mais rápido
+- Baseline forte: em visão, sempre melhor começar com um modelo pré-treinado.
