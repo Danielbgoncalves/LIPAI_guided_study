@@ -1,4 +1,6 @@
-1. **Leia o capítulo 8 do livro Introduction to Transfer Learning  Algorithms and Practice:**
+## Semana 10 - Transfer learning: o que é e como usar essa técnica?
+
+2. **Leia o capítulo 8 do livro Introduction to Transfer Learning  Algorithms and Practice:**
 
 [Introduction to Transfer Learning  Algorithms and Practice-chapter-8.pdf](attachment:1e5506fb-e4bb-4ca8-bf16-6246a8fd5915:Introduction_to_Transfer_Learning__Algorithms_and_Practice-chapter-8.pdf)
 
@@ -31,4 +33,11 @@ Congelar os blocos iniciais é bom pois já aprenderam a idetificar característ
 - Robistez: modelos pré-treinados já aprenderam invarâncias úteis
 - OOD: ajuda quando os dados são diferentes mas ainda são correlacionados
 - velocidade: convergem muito mais rápido
-- Baseline forte: em visão, sempre melhor começar com um modelo pré-treinado.
+- Baseline forte: em visão, sempre melhor começar com um modelo pré-treinado.   
+
+## Prática
+
+**1 -  Treine do zero (from scratch) o modelo resnet18 já implementado pela biblioteca torchvision (https://docs.pytorch.org/vision/main/models/resnet.html) ao invés do modelo customizado ConvNet proposto na semana 9. Verifique se é necessário alterar o número de classes na camada final para se adequar ao dataset MNIST. Mantenha os mesmos hiperparâmetros da semana 9. Compare os resultados:**
+
+No notebook ex1_resnet18_from_scrtch
+
