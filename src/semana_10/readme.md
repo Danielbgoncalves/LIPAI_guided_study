@@ -41,3 +41,6 @@ Congelar os blocos iniciais é bom pois já aprenderam a idetificar característ
 
 No notebook ex1_resnet18_from_scrtch
 
+**2 -  Utilize o modelo resnet18 com os pesos pré-treinados do imagenet (ResNet18_Weights.IMAGENET1K_V1) para avaliar os datasets ImageNet e MNIST. Você não deve treinar o modelo, apenas rodar a etapa de testes com o modelo em modo de avaliação. Não executar as fases de treinamento e validação.  Quais foram os resultados? O que você esperava antes de rodar os experimentos? Explique os resultados.**
+
+No notebook ex2_restnet18_mnist_imgnet
