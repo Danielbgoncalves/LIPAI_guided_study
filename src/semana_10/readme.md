@@ -51,6 +51,7 @@ No notebook ex2_restnet18_mnist_imgnet
 O treino levou alguns muitos minutos, exercício no notebook ex3-1_treino_mnist
 
 **3.2 - Fine tuning parcial “descongelando” apenas o último bloco da rede resnet18 (Layer 4) e última camada (fc)**
+O treino levou uma hora, execício no notebook ex3-2_treino_mnist
 
 **3.3 - Fine tuning total “descongelando” todos os blocos da rede resnet18 (Layer 1-4) e última camada (fc)**
 
