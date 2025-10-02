@@ -54,6 +54,8 @@ O treino levou alguns muitos minutos, exercício no notebook ex3-1_treino_mnist
 O treino levou uma hora, execício no notebook ex3-2_treino_mnist
 
 **3.3 - Fine tuning total “descongelando” todos os blocos da rede resnet18 (Layer 1-4) e última camada (fc)**
+O treino levou duas horas, execício no notebook ex3-3_treino_mnist
+
 
 **4 - Compare os resultados no dataset MNIST usando as métricas de acurácia e f1-score no conjunto de teste:**
 
@@ -61,3 +63,6 @@ O treino levou uma hora, execício no notebook ex3-2_treino_mnist
 2. Somente a camada fc (Ex. 3.1)
 3. Fine tuning parcial (Ex. 3.2)
 4. Fine tuning total (Ex. 3.3)
+
+Quanto mais se teina as camadas melhor é o resultado do modelo; sem treinamento o resultado é muito ruim; omodelo apenas chuta suas predições, obteve acurácia de 8%, quando treinamos apenas a última camada, fc, o resultado subiu para 96% de acurácia.
+Outra coisa a se levar emconta é o tempo de treinamento: o treino de apenas a última cadama levou alguns minutos, treinar a camada 4 e a fc levou 1h, treinar toda a rede levou muito mais. Num treinamento futuro é importante levarmos em conta o peso de aumentar um pouco mais a acurácia e o custo de treinamento.
