@@ -44,3 +44,19 @@ No notebook ex1_resnet18_from_scrtch
 **2 -  Utilize o modelo resnet18 com os pesos pré-treinados do imagenet (ResNet18_Weights.IMAGENET1K_V1) para avaliar os datasets ImageNet e MNIST. Você não deve treinar o modelo, apenas rodar a etapa de testes com o modelo em modo de avaliação. Não executar as fases de treinamento e validação.  Quais foram os resultados? O que você esperava antes de rodar os experimentos? Explique os resultados.**
 
 No notebook ex2_restnet18_mnist_imgnet
+
+**3 -  Utilize o modelo resnet18 com os pesos pré-treinados do ImageNet  para avaliar o dataset MNIST. Dessa vez você deve treinar e avaliar o modelo de 3 formas:**
+
+**3.1 - Congele todas as camadas (Layer 1, 2, 3 e 4) e treine apenas a última camada (fc).**
+O treino levou alguns muitos minutos, exercício no notebook ex3-1_treino_mnist
+
+**3.2 - Fine tuning parcial “descongelando” apenas o último bloco da rede resnet18 (Layer 4) e última camada (fc)**
+
+**3.3 - Fine tuning total “descongelando” todos os blocos da rede resnet18 (Layer 1-4) e última camada (fc)**
+
+**4 - Compare os resultados no dataset MNIST usando as métricas de acurácia e f1-score no conjunto de teste:**
+
+1. Treinamento do zero (Ex 1)
+2. Somente a camada fc (Ex. 3.1)
+3. Fine tuning parcial (Ex. 3.2)
+4. Fine tuning total (Ex. 3.3)
