@@ -1,2 +1,4 @@
 *.csv
 *.data
+Original_ROI_images/
+results/
