@@ -20,14 +20,8 @@ def dice_coef(img, ref):
     
 # Lê csv
 csv_path = 'segmentacao.csv'
-
-if not os.path.exists(csv_path):
-    df = pd.DataFrame(columns=['img_name','simples_threscholding'])
-    df.to_csv(csv_path, index=False)
-else:
-    df = pd.read_csv(csv_path)
-
-COLUNA = 'simples_threscholding'
+df = pd.read_csv(csv_path)
+COLUNA = 'adaptive_threscholding'
 linha_atual = 0
 
 # Coleta imagens a serem analisadas
@@ -49,27 +43,42 @@ for img_leitura_path, img_ref_path in zip(images_leitura, images_ref):
     img_leitura = cv2.cvtColor(img_leitura, cv2.COLOR_BGR2GRAY)
 
     # Segmentação por threshold
-    blurred = cv2.GaussianBlur(img_leitura, (7, 7), 0)
-    _, thresh_l = cv2.threshold(blurred, 105, 255, cv2.THRESH_BINARY_INV)
+    blurred = cv2.GaussianBlur(img_leitura, (5, 5   ), 0)
+    thresh = cv2.adaptiveThreshold(blurred, 255, 
+                                   cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 11, 4)
 
     # Lê imagem de referência
     img_ref = cv2.imread(img_ref_path)
     img_ref = cv2.cvtColor(img_ref, cv2.COLOR_BGR2GRAY)
 
-    # Calcula coeficiemte de dice
-    dice = dice_coef(thresh_l, img_ref)
+    # plt.figure(figsize=(8,3))
 
-    # Pega o nome da imagem
-    img_nome = img_leitura_path.split("\\")
-    img_nome = img_nome[-1].split('.')[0]
+    # plt.subplot(1, 3, 1)
+    # plt.title("Original")
+    # plt.imshow(img_leitura, cmap='gray')
+    # plt.axis('off')
+
+    # plt.subplot(1, 3, 2)
+    # plt.title("Original")
+    # plt.imshow(thresh, cmap='gray')
+    # plt.axis('off')
+
+    # plt.subplot(1, 3, 3)
+    # plt.title("Original")
+    # plt.imshow(img_ref, cmap='gray')
+    # plt.axis('off')
+
+    # plt.tight_layout()
+    # plt.show()
+
+
+    # Calcula coeficiemte de dice
+    dice = dice_coef(thresh, img_ref)
 
     # adicoina no df
-    df.loc[linha_atual, 'img_name'] = img_nome
     df.loc[linha_atual, COLUNA] = dice
-
     linha_atual +=1
 
 mean_col_name = f"{COLUNA}_mean"
 df.loc[0, mean_col_name] = df[COLUNA].mean()
-
 df.to_csv(csv_path, index=False)
