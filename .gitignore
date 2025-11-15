@@ -1,4 +1,6 @@
 *.csv
 *.data
+
 Original_ROI_images/
 results/
+Gold_Standard_Semantic_Segmentation/
